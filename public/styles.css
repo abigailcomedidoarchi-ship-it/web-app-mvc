@@ -1,0 +1,222 @@
+/* Importing elegant, soft-serif fonts */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Quicksand:wght@400;500&display=swap');
+
+:root {
+    --dusty-rose: #d4a5a5;
+    --sage-green: #9fb8ad;
+    --warm-cream: #f9f7f2;
+    --text-charcoal: #4a4444;
+    --soft-border: rgba(212, 165, 165, 0.3);
+    /* Muted, earthy gradient */
+    --bg-gradient: linear-gradient(135deg, #eaddca 0%, #d4a5a5 100%);
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: var(--bg-gradient);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--text-charcoal);
+}
+
+/* Wing container for layering */
+.fairy-container {
+    position: relative;
+    padding: 20px;
+}
+
+/* Static Fairy Wing Silhouette behind the card */
+.fairy-container::before, .fairy-container::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.fairy-container::before {
+    top: -40px; left: -80px;
+    border-radius: 100% 10% 100% 10%; /* Upper wing shape */
+    transform: rotate(-15deg);
+}
+
+.fairy-container::after {
+    bottom: -20px; right: -80px;
+    border-radius: 10% 100% 10% 100%; /* Lower wing shape */
+    transform: rotate(-10deg);
+}
+
+/* The Card */
+.card {
+    position: relative;
+    z-index: 1; /* Sits above the wings */
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 50px 40px;
+    border-radius: 40px;
+    border: 1px solid #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+}
+
+.card h2 {
+    font-family: 'Crimson Pro', serif;
+    font-weight: 600;
+    font-size: 28px;
+    color: var(--text-charcoal);
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+}
+
+/* Earthy, Soft Inputs */
+input {
+    width: 100%;
+    padding: 14px 18px;
+    margin: 10px 0;
+    background: var(--warm-cream);
+    border: 1px solid var(--soft-border);
+    border-radius: 20px;
+    font-size: 15px;
+    color: var(--text-charcoal);
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: var(--dusty-rose);
+    outline: none;
+    background: #ffffff;
+}
+
+/* Muted Rose Button */
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--dusty-rose);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 15px;
+    box-shadow: 0 4px 12px rgba(212, 165, 165, 0.3);
+    transition: opacity 0.3s ease;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Sage Green Secondary Button */
+.logout-btn {
+    background-color: transparent;
+    border: 1.5px solid var(--sage-green);
+    color: var(--sage-green);
+}
+
+.logout-btn:hover {
+    background-color: var(--sage-green);
+    color: white;
+}
+
+/* Links and Text */
+p {
+    font-size: 14px;
+    color: #888;
+    margin-top: 20px;
+}
+
+a {
+    color: var(--dusty-rose);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.3s;
+}
+
+a:hover {
+    border-bottom: 1px solid var(--dusty-rose);
+}
+
+/* Success/Error colors updated to be softer */
+.message-success { color: #8ba892; }
+.message-error { color: #c28787; }
+/* Styling for the new Welcome Page elements */
+
+.welcome-header h2 {
+    margin-bottom: 5px !important;
+}
+
+.greeting-text {
+    font-style: italic;
+    color: var(--text-charcoal);
+    opacity: 0.8;
+}
+
+.user-name {
+    font-weight: 600;
+    color: var(--dusty-rose);
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--soft-border), transparent);
+    margin: 20px 0;
+}
+
+.magic-quote {
+    background: rgba(255, 255, 255, 0.4);
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 13px;
+    margin-bottom: 20px;
+    border-left: 3px solid var(--dusty-rose);
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.grid-item {
+    background: var(--warm-cream);
+    padding: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.grid-item:hover {
+    background: white;
+    border-color: var(--dusty-rose);
+}
+
+.grid-item .icon {
+    font-size: 20px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.grid-item p {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.footer-note {
+    font-size: 11px !important;
+    opacity: 0.6;
+    margin-top: 20px;
+}
