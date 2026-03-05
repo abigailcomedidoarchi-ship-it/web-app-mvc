@@ -1,10 +1,10 @@
 <?php 
 include 'views/templates/header.php'; ?>
 
-<div class="fairy-container">
+<div class="container">
     <div class="card home-box">
         <div class="welcome-header">
-            <h2>Welcome Home</h2>
+            <h2>Welcome</h2>
             <p class="greeting-text">
                 Greetings, <span class="user-name"><?php echo htmlspecialchars($_SESSION['fullname'] ?? 'Traveler'); ?></span>. 
                 

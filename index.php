@@ -1,18 +1,12 @@
 <?php
-require_once __DIR__ . '/vendor/autoload.php';
-session_start();
-require_once __DIR__ . '/controllers/AuthController.php';
-$controller = new AuthController();
-$action = $_GET['action'] ?? 'login';
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-switch($action) {
-    case 'register': $controller->register(); break;
-    case 'login': $controller->login(); break;
-    case 'verify': $controller->verify(); break;
-    case 'otp': $controller->otp(); break;
-    case 'home': $controller->home(); break;
-    case 'logout': $controller->logout(); break;
-    default: $controller->login(); break;
-}
 
+
+require_once 'vendor/autoload.php'; 
+require_once 'core/core.php';        
+
+
+$core = new Core();
 ?>
